@@ -1,52 +1,37 @@
-import java.util.Arrays;
+
 
 public class Main {
 
 
     public static void main(String[] args) {
-        Car ladaGranta = new Car();
-        ladaGranta.brand = "Lada";
-        ladaGranta.model = "Granta";
-        ladaGranta.year = 2015;
-        ladaGranta.country = "Россия";
-        ladaGranta.color = "желтого цвета";
-        ladaGranta.engineVolume = 1.7f;
+        //Создайте новый проект в IDEA. Создайте класс «Автомобиль», у которого есть:
+        //марка (brand),
+        //модель (model),
+        //объем двигателя в литрах (engineVolume),
+        //цвет кузова (color),
+        //год производства (year),
+        //страна сборки (country).
+        //Создайте объекты для следующих автомобилей:
+        //Lada Granta, 2015 год выпуска, сборка в России, желтого цвета, объем двигателя — 1,7 л.
+        //Audi A8 50 L TDI quattro, 2020 год выпуска, сборка в Германии, черный цвет кузова, объем двигателя — 3,0 л.
+        //BMW Z8, сборка в Германии в 2021 году, черный цвет кузова, объем — 3,0 л.
+        //Kia Sportage 4-го поколения, 2018 год выпуска, сборка в Южной Корее, цвет кузова — красный, объем двигателя — 2,4 л.
+        //Hyundai Avante, сборка в Южной Корее, цвет кузова — оранжевый, объем двигателя — 1,6 л, год выпуска — 2016 год.
+        //Напишите программу, которая будет выводить в консоль информацию о каждом автомобиле и все указанные выше характеристики.
+        Car ladaGranta = new Car( "Lada","Granta",2015,"Россия","желтого цвета",1.7f);
 
 
-        Car audiA8 = new Car();
-        audiA8.brand = "Audi";
-        audiA8.model = "A8 L TDI quattro";
-        audiA8.year = 2020;
-        audiA8.country = "Германия";
-        audiA8.color = "черный цвет кузова";
-        audiA8.engineVolume = 3.0f;
+        Car audiA8 = new Car("Audi","A8 L TDI quattro",2020,"Германия", "черный цвет кузова", 3.0f);
 
 
-        Car BMWZ8 = new Car();
-        BMWZ8.brand = "BMW";
-        BMWZ8.model = "Z8";
-        BMWZ8.year = 2021;
-        BMWZ8.country = "Германия";
-        BMWZ8.color = "черный цвет кузова";
-        BMWZ8.engineVolume = 3.0f;
+        Car BMWZ8 = new Car("BMW","Z8",2021,"Германия","черный цвет кузова",3.0f);
 
 
-        Car kiaSportage =new Car();
-        kiaSportage.brand = "Kia";
-        kiaSportage.model = "Sportage 4-го поколения";
-        kiaSportage.year = 2018;
-        kiaSportage.country = "Южной Корее";
-        kiaSportage.color = "красный цвет кузова";
-        kiaSportage.engineVolume = 2.4f;
+        Car kiaSportage =new Car("Kia","Sportage 4-го поколения",2018,"Южной Корее", "красный цвет кузова",2.4f);
 
 
-        Car hyundaiAvante = new Car();
-        hyundaiAvante.brand = "Hyundai";
-        hyundaiAvante.model = "Avante";
-        hyundaiAvante.year = 2016;
-        hyundaiAvante.country = "Южной Корее";
-        hyundaiAvante.color = "оранжевый цвет кузова";
-        hyundaiAvante.engineVolume = 1.6f;
+        Car hyundaiAvante = new Car("Hyundai","Avante",2016,"Южной Корее","оранжевый цвет кузова",1.6f);
+
         System.out.println(ladaGranta + "" + audiA8 + "" + BMWZ8 + "" + kiaSportage + "" + hyundaiAvante);
 
     }
