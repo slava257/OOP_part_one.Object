@@ -1,6 +1,7 @@
-
+import transport.Car;
 
 public class Main {
+
 
 
     public static void main(String[] args) {
@@ -22,17 +23,36 @@ public class Main {
 
 
         Car audiA8 = new Car("Audi","A8 L TDI quattro",2020,"Германия", "черный цвет кузова", 3.0f);
-
+        audiA8.setSummerTyres(false);
 
         Car BMWZ8 = new Car("BMW","Z8",2021,"Германия","черный цвет кузова",3.0f);
-
+        BMWZ8.setRegistrationNumber("х034ор34");
 
         Car kiaSportage =new Car("Kia","Sportage 4-го поколения",2018,"Южной Корее", "красный цвет кузова",2.4f);
-
+        kiaSportage.setTransmission("АКПП");
 
         Car hyundaiAvante = new Car("Hyundai","Avante",2016,"Южной Корее","оранжевый цвет кузова",1.6f);
-
+        hyundaiAvante.setKay(new Car.Kay(true,true));
         System.out.println(ladaGranta + "" + audiA8 + "" + BMWZ8 + "" + kiaSportage + "" + hyundaiAvante);
+printInfo(ladaGranta);
+printInfo(audiA8);
+printInfo(BMWZ8);
+printInfo(kiaSportage);
+printInfo(hyundaiAvante);
+    }
 
+    private static void printInfo(Car car) {
+        System.out.println(car.getBrand()+" "+car.getModel() +
+                ", год выпуска: "+car.getYearOfRelease() +
+                ", страна сборки: " + car.getCountry() +
+                ", цвет кузова: " + car.getColor() +
+                ", объем двигателя: "+car.getEngineVolume() +
+                ", коробка передач: "+car.getTransmission() +
+                ", тип кузова: " +car.getBodyType() +
+                ", регистрационный номер: " +car.getRegistrationNumber() +
+                ", количество мест: "+car.getNumberOfSeats()+
+                ", "+(car.isSummerTyres()?"летняя":"зимняя")+" резина " +
+                ", "+(car.getKay().isKeylessAccess() ? "безключевой доступ":"ключевой доступ")+
+                ", "+(car.getKay().isRemoteRunEngine() ? "удаленный запуск":"обычный запуск"));
     }
 }
