@@ -1,18 +1,13 @@
 package transport;
 
-public class Car {
+public class Car extends Transport {
 
     private String transmission;
     private final String bodyType;
     private String registrationNumber;
 
     private final int numberOfSeats;
-    private final String brand;
-    private final String model;
     private float engineVolume;
-    private String color;
-    private final int yearOfRelease;
-    private final String country;
     private boolean summerTyres;
     private Kay kay;
 
@@ -41,28 +36,10 @@ public class Car {
     //«Бесключевой доступ».
     //Данные параметры неизменяемые. Добавьте ко всем новым полям проверку данных, что параметры не пустые, не равны null и содержат корректные данные.
     public Car(String transmission, String bodyType, String registrationNumber, int numberOfSeats,
-               String brand, String model, float engineVolume, String color, int yearOfRelease,
-               String country, boolean winterTyres,Kay kay) {
-        if (brand == null || brand.isEmpty() || brand.isBlank()) {
-            this.brand = "default";
-        } else {
-            this.brand = brand;
-        }
-        if (model == null || model.isEmpty() || model.isBlank()) {
-            this.model = "default";
-        } else {
-            this.model = model;
-        }
-        if (yearOfRelease <= 0) {
-            this.yearOfRelease = 2000;
-        } else {
-            this.yearOfRelease = yearOfRelease;
-        }
-        if (country == null || country.isEmpty() || country.isBlank()) {
-            this.country = "default";
-        } else {
-            this.country = country;
-        }
+               String brand, String model, float engineVolume, String bodyColor, int yearOfRelease,
+               String countryOfOrigin, boolean winterTyres, Kay kay) {
+        super(brand,model,yearOfRelease,countryOfOrigin,bodyColor,90);
+
         if (transmission == null || transmission.isEmpty() || transmission.isBlank()) {
             this.transmission = "МКПП";
         } else {
@@ -77,11 +54,6 @@ public class Car {
             this.bodyType = "седан";
         } else {
             this.bodyType = bodyType;
-        }
-        if (color == null || color.isEmpty() || color.isBlank()) {
-            this.color = "белый";
-        } else {
-            this.color = color;
         }
         if (engineVolume <= 0) {
             this.engineVolume = 1.5f;
@@ -103,8 +75,8 @@ public class Car {
     }
 
 
-    public Car(String brand, String model, int yearOfRelease, String country, String color, float engineVolume) {
-        this( "МКПП", "седан","x000xx000", 5, brand, model, engineVolume, color, yearOfRelease, country, true,new Kay());
+    public Car(String brand, String model, int yearOfRelease, String countryOfOrigin, String bodyColor, float engineVolume) {
+        this( "МКПП", "седан","x000xx000", 5, brand, model, engineVolume, bodyColor, yearOfRelease, countryOfOrigin, true,new Kay());
     }
 
     public String getTransmission() {
@@ -142,17 +114,6 @@ public class Car {
             this.engineVolume = engineVolume;
         }
     }
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        if (color == null || color.isEmpty() || color.isBlank()) {
-            this.color = "белый";
-        } else {
-            this.color = color;
-        }
-    }
 
     public boolean getSummerTyres() {
         return summerTyres;
@@ -172,24 +133,6 @@ public class Car {
     public int getNumberOfSeats() {
         return numberOfSeats;
     }
-
-
-    public String getBrand() {
-        return brand;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public int getYearOfRelease() {
-        return yearOfRelease;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
     public void changeTyres() {
         summerTyres = !summerTyres;
     }

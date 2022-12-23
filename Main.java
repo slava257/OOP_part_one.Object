@@ -1,7 +1,7 @@
+import transport.Bus;
 import transport.Car;
 
 public class Main {
-
 
 
     public static void main(String[] args) {
@@ -27,25 +27,35 @@ public class Main {
 
         Car BMWZ8 = new Car("BMW","Z8",2021,"Германия","черный цвет кузова",3.0f);
         BMWZ8.setRegistrationNumber("х034ор34");
+        BMWZ8.setMaxMovementSpeed(180);
 
         Car kiaSportage =new Car("Kia","Sportage 4-го поколения",2018,"Южной Корее", "красный цвет кузова",2.4f);
         kiaSportage.setTransmission("АКПП");
 
         Car hyundaiAvante = new Car("Hyundai","Avante",2016,"Южной Корее","оранжевый цвет кузова",1.6f);
         hyundaiAvante.setKay(new Car.Kay(true,true));
-        System.out.println(ladaGranta + "" + audiA8 + "" + BMWZ8 + "" + kiaSportage + "" + hyundaiAvante);
 printInfo(ladaGranta);
 printInfo(audiA8);
 printInfo(BMWZ8);
 printInfo(kiaSportage);
 printInfo(hyundaiAvante);
+        printTask();
+        Bus mercedes = new Bus("Mercedes","Sprinter",2007,"Германия","Синий", 180);
+        mercedes.setMaxMovementSpeed(210);
+        Bus volkswagen = new Bus("Volkswagen","Crafter",2015,"Германия","Серый",175);
+        Bus renault = new Bus("Renault","Trafic",2019,"Франция","Красный",160);
+        printInfoBus(mercedes);
+        printInfoBus(volkswagen);
+        printInfoBus(renault);
     }
+
+
 
     private static void printInfo(Car car) {
         System.out.println(car.getBrand()+" "+car.getModel() +
                 ", год выпуска: "+car.getYearOfRelease() +
-                ", страна сборки: " + car.getCountry() +
-                ", цвет кузова: " + car.getColor() +
+                ", страна сборки: " + car.getCountryOfOrigin() +
+                ", цвет кузова: " + car.getBodyColor() +
                 ", объем двигателя: "+car.getEngineVolume() +
                 ", коробка передач: "+car.getTransmission() +
                 ", тип кузова: " +car.getBodyType() +
@@ -53,6 +63,13 @@ printInfo(hyundaiAvante);
                 ", количество мест: "+car.getNumberOfSeats()+
                 ", "+(car.isSummerTyres()?"летняя":"зимняя")+" резина " +
                 ", "+(car.getKay().isKeylessAccess() ? "безключевой доступ":"ключевой доступ")+
-                ", "+(car.getKay().isRemoteRunEngine() ? "удаленный запуск":"обычный запуск"));
+                ", "+(car.getKay().isRemoteRunEngine() ? "удаленный запуск":"обычный запуск") +
+                ", Максимальная скорость передвижения: " + car.getMaxMovementSpeed()+'.');
+    }
+    private static void printInfoBus(Bus bus){
+        System.out.println(bus);
+    }
+    private static void printTask(){
+        System.out.println("Task bus ");
     }
 }
